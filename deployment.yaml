@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: example
+  name: example
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+        - image: jasmingacic/example:latest
+          imagePullPolicy: Always
+          name: example
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: example
+  name: example
+  namespace: default
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+  selector:
+    app: example

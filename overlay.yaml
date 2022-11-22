@@ -1,0 +1,11 @@
+overlays: 1.0.0
+extends: ./swagger.yaml
+actions:
+  - target: "$"
+    update:
+      x-kusk:
+        upstream:
+          service:
+            name: example
+            namespace: default
+            port: 8080
