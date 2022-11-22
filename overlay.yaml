@@ -9,3 +9,9 @@ actions:
             name: example
             namespace: default
             port: 8080
+        cors:
+          methods:
+            - GET
+            - POST
+          origins:
+            - "*"
